@@ -6,5 +6,4 @@ class FlavorConfig {
   Color? themeColor;
 
   FlavorConfig({this.appTitle="flavour",this.imageLocation="assets/images/logo.jpeg",this.themeColor});
-
 }
