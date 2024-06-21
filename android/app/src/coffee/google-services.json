@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "732512711212",
+    "project_id": "flutterflavorcoffee",
+    "storage_bucket": "flutterflavorcoffee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732512711212:android:de898696291da904bf9789",
+        "android_client_info": {
+          "package_name": "com.example.flutter_flavours.coffee2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB_068cVA0nvnaMl5kS_udiF33eqvVuzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
