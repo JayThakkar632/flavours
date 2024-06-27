@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_flavours/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,7 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 var flavourConfigProvider;
 
-void mainCommon(FlavorConfig config) {
+Future<void> mainCommon(FlavorConfig config) async {
+
   flavourConfigProvider = StateProvider(
       (ref)=>config,
   );
@@ -14,8 +17,18 @@ void mainCommon(FlavorConfig config) {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -39,6 +52,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String name = "started";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    config();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +68,32 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(context.read(flavourConfigProvider).state.appTitle),
         backgroundColor: context.read(flavourConfigProvider).state.themeColor),
-      body: Image.asset(
-        context.read(flavourConfigProvider).state.imageLocation,
-        fit: BoxFit.cover,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            context.read(flavourConfigProvider).state.imageLocation,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(height: 20,),
+          Text(name)
+        ],
       ),
     );
+  }
+
+  Future<void> config() async {
+    final remoteConfig = FirebaseRemoteConfig.instance;
+    await remoteConfig.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: const Duration(minutes: 1),
+      minimumFetchInterval: const Duration(hours: 1),
+    ));
+
+    name = remoteConfig.getString('name');
+
+    setState(() {
+
+    });
   }
 }
