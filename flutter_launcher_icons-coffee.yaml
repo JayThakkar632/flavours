@@ -2,3 +2,4 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/app_icon/leaf.png"
+  remove_alpha_ios: true

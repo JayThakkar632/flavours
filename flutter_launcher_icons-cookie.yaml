@@ -2,3 +2,4 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/app_icon/logo.jpeg"
+  remove_alpha_ios: true
