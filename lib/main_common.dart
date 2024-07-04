@@ -1,20 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_flavours/flavor_config.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-var flavourConfigProvider;
-
-Future<void> mainCommon(FlavorConfig config) async {
-
-  flavourConfigProvider = StateProvider(
-      (ref)=>config,
-  );
-  runApp(
-    ProviderScope(child: MyApp()),
-  );
+Future<void> mainCommon() async {
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -26,14 +15,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: context.read(flavourConfigProvider).state.appTitle,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -56,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     config();
@@ -65,21 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.read(flavourConfigProvider).state.appTitle),
-        backgroundColor: context.read(flavourConfigProvider).state.themeColor),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            context.read(flavourConfigProvider).state.imageLocation,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(height: 20,),
-          Text(name)
-        ],
-      ),
+      body: Center(child: Text("From Remote Config : "+name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
     );
   }
 
@@ -89,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       fetchTimeout: const Duration(minutes: 1),
       minimumFetchInterval: const Duration(hours: 1),
     ));
+    await remoteConfig.fetchAndActivate();
 
     name = remoteConfig.getString('name');
 
