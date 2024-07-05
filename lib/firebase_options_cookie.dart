@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutterflavorcookie.appspot.com',
     iosBundleId: 'com.example.flutterFlavours-cookie',
   );
+
 }

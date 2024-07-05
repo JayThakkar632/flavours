@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "732512711212",
-    "project_id": "flutterflavorcoffee",
-    "storage_bucket": "flutterflavorcoffee.appspot.com"
+    "project_number": "725036694115",
+    "project_id": "flutterflavorcookie",
+    "storage_bucket": "flutterflavorcookie.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732512711212:android:bb1e7685cb8558b1bf9789",
+        "mobilesdk_app_id": "1:725036694115:android:ac8b230c4aade946075656",
         "android_client_info": {
           "package_name": "com.example.flutter_flavours"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCB_068cVA0nvnaMl5kS_udiF33eqvVuzk"
+          "current_key": "AIzaSyCMYhZ7Gzo-fKH-FHxQEHV4ZxJkl5JXN9M"
         }
       ],
       "services": {
@@ -26,15 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732512711212:android:de898696291da904bf9789",
+        "mobilesdk_app_id": "1:725036694115:android:cd9d0c30aa90ffbb075656",
         "android_client_info": {
-          "package_name": "com.example.flutter_flavours.coffee2"
+          "package_name": "com.example.flutter_flavours.cookie2"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCB_068cVA0nvnaMl5kS_udiF33eqvVuzk"
+          "current_key": "AIzaSyCMYhZ7Gzo-fKH-FHxQEHV4ZxJkl5JXN9M"
         }
       ],
       "services": {

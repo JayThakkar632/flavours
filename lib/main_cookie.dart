@@ -5,6 +5,8 @@ import 'main_common.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+      name: "cookie",
+      options: DefaultFirebaseOptions.currentPlatform);
   mainCommon();
 }

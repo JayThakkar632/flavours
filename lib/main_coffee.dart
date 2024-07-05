@@ -5,6 +5,6 @@ import 'firebase_options_coffee.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(name: "coffee", options: DefaultFirebaseOptions.currentPlatform);
   mainCommon();
 }
