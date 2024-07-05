@@ -1,5 +1,5 @@
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/app_icon/logo.jpeg"
+  image_path: "assets/app_icon/cookie.jpeg"
   remove_alpha_ios: true
